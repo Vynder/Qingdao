@@ -1,0 +1,38 @@
+import graphviz
+
+# Create a new Digraph (directed graph)
+dot = graphviz.Digraph()
+
+# Define the nodes (blocks) in the diagram
+dot.node("Input", "Input")
+dot.node("Speaker", "Speaker")
+dot.node("Class", "Class")
+dot.node("Lessons", "Lessons")
+dot.node("Dismay", "Dismay")
+dot.node("Circus", "Circus")
+dot.node("Attempts", "Attempts")
+dot.node("JokesStories", "Jokes and Stories")
+dot.node("Undone", "Undone")
+dot.node("Questions", "Questions")
+dot.node("Ignorance", "Ignorance")
+dot.node("LearningSuccess", "Learning and Success")
+dot.node("Yearning", "Yearning")
+dot.node("CrossingLine", "Crossing the Line")
+dot.node("InsanityPatience", "Insanity and Patience")
+dot.node("Teaching", "Teaching")
+dot.node("Duty", "Duty")
+
+# Define the connections between nodes
+dot.edges(["Input->Speaker", "Speaker->Class", "Speaker->Lessons",
+           "Speaker->Dismay", "Dismay->Circus", "Speaker->Attempts",
+           "Attempts->JokesStories", "Attempts->Undone", "Undone->Questions",
+           "Undone->Ignorance", "Ignorance->CrossingLine",
+           "Ignorance->InsanityPatience", "InsanityPatience->Teaching",
+           "InsanityPatience->Duty", "Yearning->LearningSuccess"])
+
+# Set the graph attributes
+dot.graph_attr["rankdir"] = "LR"  # Layout direction from left to right
+
+# Render and save the diagram as a PDF file
+dot.format = "pdf"
+dot.render("block_diagram", view=True)
